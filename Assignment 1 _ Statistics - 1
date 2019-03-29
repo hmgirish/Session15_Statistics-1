@@ -1,0 +1,32 @@
+1. You survey households in your area to find the average rent they are paying. Find the
+   standard deviation from the following data:
+   
+   $1550, $1700, $900, $850, $1000, $950.
+   
+Solution:
+
+def find_mean(arr):
+    return sum(arr)/len(arr)
+    
+def find_variance(arr):
+    variance = 0.0
+    from math import sqrt
+    mean = find_mean(arr)
+    variance = sum((x - mean)**2 for x in arr) / (len(arr)-1)
+    return variance
+    
+def find_std_dev(arr):
+    return find_variance(arr)**0.5
+    
+arr = [1550,1700,900,850,1000,950]
+
+Using Custom Method:
+
+print("Average Rent households paying: " + str(find_mean(arr)))
+print("Standard Deviation of the rent households paying: " + str(find_std_dev(arr)))
+
+Using statistics library:
+
+import statistics as stat
+print(str("Average Rent households paying: " + str(stat.mean(arr))))
+print(str("Standard Deviation of the rent households paying: " + str(stat.stdev(arr))))
